@@ -1,5 +1,7 @@
 class ApplicationController < Sinatra::Base 
   configure do 
+    enable :sessions
+    set :session_secret, "0pujyfg"
     set :views, 'app/views'
   end 
   
@@ -10,6 +12,12 @@ class ApplicationController < Sinatra::Base
   get '/failure' do 
     erb :failure
   end 
+  
+  
+  
+  
+  
+  
   
   private 
   
