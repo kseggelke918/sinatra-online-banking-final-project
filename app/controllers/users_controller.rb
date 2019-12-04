@@ -3,7 +3,7 @@
 class UsersController < ApplicationController 
  
  
- post '/login' do 
+ post '/users/login' do 
    if !logged_in?
       erb :login 
     else 
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     end 
  end 
  
- get '/signup' do 
+ get '/users/signup' do 
    erb :signup
  end 
     
