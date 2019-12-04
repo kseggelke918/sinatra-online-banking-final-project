@@ -1,7 +1,7 @@
 class UsersController < ApplicationController 
  
  
- get '/login' do 
+ post '/login' do 
    if !logged_in?
       erb :login 
     else 
