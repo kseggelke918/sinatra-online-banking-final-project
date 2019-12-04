@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(full_name: params[:name], username: params[:username], password: params[:password])
   else 
     "Passwords do not match"
-    redirect to "/users/signup"
+    redirect to "/signup"
   end
  end 
     
