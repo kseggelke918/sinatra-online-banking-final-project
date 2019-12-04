@@ -14,6 +14,15 @@ class UsersController < ApplicationController
  get '/users/signup' do 
    erb :signup
  end 
+ 
+ post '/registration' do 
+   if params[:password] == params[:confirm_password]
+    @user = User.new(full_name: params[:name], username: params[:username], password: params[:password])
+  else 
+    "Passwords do not match"
+    redirect to "/users/signup"
+  end
+ end 
     
   
 end 
