@@ -3,16 +3,16 @@
 class UsersController < ApplicationController 
  
  
- post '/users/login' do 
+ post '/login' do 
    if !logged_in?
-      erb :login 
+      erb :'users/login' 
     else 
       "redirect to accounts page"
     end 
  end 
  
- get '/users/signup' do 
-   erb :signup
+ get '/signup' do 
+   erb :'users/signup'
  end 
  
  post '/registration' do 
