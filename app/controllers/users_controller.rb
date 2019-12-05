@@ -12,7 +12,7 @@ class UsersController < ApplicationController
    
    if user && user.authenticate(params[:password])
     session[:user_id] = user.id 
-    redirect '/accounts/accounts'
+    redirect '/accounts'
    else 
     @errors = ["Invalid Username or Password"]
     erb :failure  
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.new(full_name: params[:name], username: params[:username], password: params[:password])
     @user.save 
     session[:user_id] = @user.id 
-    redirect to "/accounts"
+    redirect to "/accounts/new"
   else 
     @error = ["Passwords do not match"]
     redirect to "/failure"

@@ -1,10 +1,10 @@
 class AccountsController < ApplicationController 
  get '/accounts/accounts' do 
-  erb :'accounts/new'    
+      
  end 
  
  get '/accounts/new' do 
-   
+  erb :'accounts/new' 
  end 
  
  post '/accounts/new' do 
