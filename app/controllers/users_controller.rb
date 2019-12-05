@@ -4,11 +4,8 @@ class UsersController < ApplicationController
  
  
  post '/login' do 
-   if !logged_in?
-      erb :'users/login' 
-    else 
-      "redirect to accounts page"
-    end 
+   user = User.find_by(username: params[:username])
+   
  end 
  
  get '/signup' do 
@@ -22,14 +19,15 @@ class UsersController < ApplicationController
     session[:user_id] = @user.id 
     redirect to "/accounts"
   else 
-    "Passwords do not match"
-    redirect to "/signup"
+    @error = ["Passwords do not match"]
+    redirect to "/failure"
   end
  end 
  
  get '/accounts' do 
    erb :'accounts/accounts'
  end 
+ 
     
   
 end 
