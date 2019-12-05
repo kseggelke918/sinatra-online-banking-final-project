@@ -3,9 +3,13 @@
 <form action='/accounts/new' method="post">
   <p>
     <label for="account_type">Account Type: </label><br>
-    <label for="checking">Checking</label><input type="radio" name="checking"><br>
-    <label for="savings">Savings</label><input type="radio" name="savings">
-    <label for="opening_deposit">Opening Deposit: </label><input type="number" name="opening_deposit"><br>
+    <ul>
+      <li><label for="checking">Checking</label><input type="radio" name="checking"></li>
+      <li><label for="savings">Savings</label><input type="radio" name="savings"></li>
+    </ul>
+    
+    
+    <label for="opening_deposit">Opening Deposit: $</label><input type="text" name="opening_deposit"><br>
     <br>
     <input type="submit" value="Open New Account">
   </p>
