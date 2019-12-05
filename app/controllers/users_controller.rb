@@ -12,7 +12,7 @@ class UsersController < ApplicationController
    
    if user && user.authenticate(params[:password])
     session[:user_id] = user.id 
-    redirect '/accounts'
+    redirect '/accounts/accounts'
    else 
     @errors = ["Invalid Username or Password"]
     erb :failure  
