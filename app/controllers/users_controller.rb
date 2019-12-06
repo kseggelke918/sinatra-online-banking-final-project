@@ -7,7 +7,7 @@ class UsersController < ApplicationController
    erb :'users/login' 
  end 
  
- post '/users/login' do 
+ post '/login' do 
    user = User.find_by(username: params[:username])
    
    if user && user.authenticate(params[:password])
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
    
  end 
  
- get '/users/signup' do 
+ get '/signup' do 
    erb :'users/signup'
  end 
  
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
    erb :'accounts/accounts'
  end 
  
- get '/users/logout' do 
+ get '/logout' do 
    session.clear 
    redirect '/'
  end 
