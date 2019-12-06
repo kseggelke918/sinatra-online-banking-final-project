@@ -4,10 +4,10 @@ class UsersController < ApplicationController
  
  
  get '/login' do 
-   erb :login 
+   erb :'users/login' 
  end 
  
- post '/login' do 
+ post '/users/login' do 
    user = User.find_by(username: params[:username])
    
    if user && user.authenticate(params[:password])
@@ -20,11 +20,11 @@ class UsersController < ApplicationController
    
  end 
  
- get '/signup' do 
+ get '/users/signup' do 
    erb :'users/signup'
  end 
  
- post '/registration' do 
+ post '/signup' do 
    # ToDo: tweek conditional statement so that if a user is already found, they are brought into the login page
    if params[:password] == params[:confirm_password]
     @user = User.new(full_name: params[:name], username: params[:username], password: params[:password])
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     session[:user_id] = @user.id 
     redirect to "/accounts/new"
   else 
-    @error = ["Passwords do not match"]
+    @errors = ["Passwords do not match"]
     redirect to "/failure"
   end
  end 
