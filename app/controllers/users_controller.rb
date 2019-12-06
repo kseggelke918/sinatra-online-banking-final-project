@@ -1,5 +1,5 @@
 # frozen_string_literal: true 
-
+require 'pry'
 class UsersController < ApplicationController 
  
  
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     redirect to "/accounts/new"
   else 
     @errors = ["Passwords do not match"]
-    redirect to "/failure"
+    erb :failure
   end
  end 
  
