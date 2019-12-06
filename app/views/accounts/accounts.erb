@@ -1,1 +1,5 @@
 <h1>Account information will display here.</h1>
+<% @accounts.each do |account| %>
+  <p><label for="account">Account Number: </label><%= account.account_number %></p>
+  <p><label for="balance">Balance: </label><%= account.balance %></p>
+<% end %>
