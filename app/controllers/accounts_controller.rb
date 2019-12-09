@@ -1,6 +1,5 @@
 class AccountsController < ApplicationController 
  get '/accounts/accounts' do
-   binding.pry 
    if logged_in?
     @user = User.find_by_id(params[:id])
     @accounts = @user.accounts 
@@ -25,6 +24,7 @@ class AccountsController < ApplicationController
     redirect to "accounts/#{@account.id}"
   else
     redirect to '/login'
+  end 
  end 
 
   get '/accounts/:id' do
