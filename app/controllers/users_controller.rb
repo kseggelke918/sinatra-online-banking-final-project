@@ -41,7 +41,14 @@ class UsersController < ApplicationController
   @user = User.find_by_id(params[:id])
   erb :edit 
  end 
-
+ 
+ patch 'users/:id' do 
+   @user=User.find_by_id(params[:id])
+   @user.username = params[:username]
+   @user.full_name = params[:full_name]
+   @user.save 
+   redirect to "/users/#{user.id}"
+ end 
  
  get '/logout' do 
    session.clear 
