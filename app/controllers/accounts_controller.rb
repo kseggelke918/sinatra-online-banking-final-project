@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController 
  get '/accounts/accounts' do
-   @accounts = Account.all 
+   @user = User.find_by_id(params[:id])
+   @accounts = @user.accounts 
   erb :'/accounts/accounts'    
  end 
  
