@@ -5,13 +5,19 @@ class AccountsController < ApplicationController
  end 
  
  get '/accounts/new' do
-   @account = Account.new(account_number: params[:account_number], balance: params[:balance], user_id: params[:user_id])
-   @account.save 
   erb :'accounts/new' 
  end 
  
  post '/accounts/new' do 
- 
+  @account = Account.new(account_type: params[:account_type], opening_deposit: params[:opening_deposit], user_id: params[:user_id])
+  @account.save 
  end 
+
+  get '/accounts/:id' do
+   @user = User.find_by_id(params[:id])
+   erb :'accounts/accounts'
+  end 
+ 
+
   
 end 
