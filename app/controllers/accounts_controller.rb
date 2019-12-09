@@ -9,6 +9,7 @@ class AccountsController < ApplicationController
  end 
  
  post '/accounts/new' do 
+   binding.pry 
   @account = Account.new(account_type: params[:account_type], opening_deposit: params[:opening_deposit], user_id: params[:user_id])
   @account.save 
  end 
