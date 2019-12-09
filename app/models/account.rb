@@ -6,8 +6,7 @@ class Account < ActiveRecord::Base
   end 
   
   def account_number_generator
-    123456
-    
+    rand(111111..999999)
   end 
   
 end 
