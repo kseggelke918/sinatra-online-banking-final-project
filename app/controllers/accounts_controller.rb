@@ -11,7 +11,7 @@ class AccountsController < ApplicationController
  post '/accounts/new' do 
   @account = Account.new(account_type: params[:account_type], balance: params[:balance], user_id: params[:user_id])
   @account.save 
-  erb: 'accounts/accounts'
+  erb :'accounts/accounts'
  end 
 
   get '/accounts/:id' do
