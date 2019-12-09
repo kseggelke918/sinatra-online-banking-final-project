@@ -14,11 +14,6 @@ class ApplicationController < Sinatra::Base
   end 
   
   
-  
-  
-  
-  
-  
   private 
   
   helpers do
