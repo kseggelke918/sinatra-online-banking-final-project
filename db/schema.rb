@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_222239) do
+ActiveRecord::Schema.define(version: 2019_12_09_174945) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "account_number"
     t.integer "user_id"
     t.string "balance"
+    t.string "account_type"
   end
 
   create_table "users", force: :cascade do |t|
