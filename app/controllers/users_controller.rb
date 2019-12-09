@@ -21,7 +21,8 @@ class UsersController < ApplicationController
   end 
   
   get '/:id/accounts' do 
-    "Hello World"
+    @user = User.find_by_id(params[:id])
+    erb :'accounts/accounts'
   end 
   
   get '/logout' do 
