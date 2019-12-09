@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController 
  get '/accounts/accounts' do
+   binding.pry 
    if logged_in?
     @user = User.find_by_id(params[:id])
     @accounts = @user.accounts 
@@ -18,9 +19,12 @@ class AccountsController < ApplicationController
  end 
  
  post '/accounts' do 
-  @account = Account.new(account_type: params[:account_type], balance: params[:balance], user_id: params[:user_id], account_number: rand(111111..999999))
-  @account.save 
-  redirect to "accounts/accounts"
+  if logged_in?
+    @account = Account.new(account_type: params[:account_type], balance: params[:balance], user_id: params[:user_id], account_number: rand(111111..999999))
+    @account.save 
+    redirect to "accounts/#{@account.id}"
+  else
+    redirect to '/login'
  end 
 
   get '/accounts/:id' do
