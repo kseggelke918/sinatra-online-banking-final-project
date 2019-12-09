@@ -1,3 +1,17 @@
+<h1>Hello, <%=@user.full_name%></h1>
+
+<% @user.accounts.each do |account| %>
+  <p><%= account.account_number %></p>
+  <p><%= account.balance %></p>
+<% end %>
+
+<h4>Open An Account: </h4>
+<form action='/accounts/new' method="get">
+  <input type="submit" value="Open Account">
+</form>
+<br>
+<br>
+
 
 
 
