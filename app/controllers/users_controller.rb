@@ -13,11 +13,15 @@ class UsersController < ApplicationController
       @user = User.new(full_name: params[:full_name], username: params[:username], password: params[:password])
       @user.save 
       session[:user_id] = @user.id 
-      redirect to "/accounts/#{@user.id}"
+      redirect to "/#{@user.id}/accounts"
     else 
       @errors = ["Passwords do not match"]
       erb :failure 
     end 
+  end 
+  
+  get '/:id/accounts' do 
+    "Hello World"
   end 
   
   get '/logout' do 
