@@ -9,15 +9,16 @@ class AccountsController < ApplicationController
  end 
  
  post '/accounts/new' do 
-  @account = Account.new(account_type: params[:account_type], balance: params[:balance], user_id: params[:user_id])
+  binding.pry 
+  @account = Account.new(account_type: params[:account_type], balance: params[:balance], user_id: params[:user_id], account_number: rand(111111..999999))
   @account.save 
-  erb :'accounts/accounts'
+  redirect to "accounts/accounts"
  end 
 
   get '/accounts/:id' do
    @user = User.find_by_id(params[:id])
    @accounts = @user.accounts 
-   erb :'accounts/accounts'
+   erb :accounts 
   end 
   
   
