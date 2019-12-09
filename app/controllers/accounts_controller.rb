@@ -31,7 +31,7 @@ class AccountsController < ApplicationController
     if logged_in?
       @user = User.find_by_id(params[:id])
       @accounts = @user.accounts 
-      erb :accounts 
+      erb :'accounts/accounts' 
     else 
       redirect to '/login'
     end 
