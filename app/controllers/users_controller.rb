@@ -8,6 +8,18 @@ class UsersController < ApplicationController
     erb :'users/signup' 
   end 
   
+  post '/login' do 
+    user = User.find_by(username: params[:username])
+   
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id 
+      redirect '/accounts/accounts'
+    else 
+      @errors = ["Invalid Username or Password"]
+      erb :failure  
+    end 
+  end 
+  
   post '/signup' do 
     if params[:password] == params[:confirm_password]
       @user = User.new(full_name: params[:full_name], username: params[:username], password: params[:password])
@@ -44,15 +56,15 @@ end
 # end 
  
 # post '/login' do 
-#   user = User.find_by(username: params[:username])
+  # user = User.find_by(username: params[:username])
    
-#   if user && user.authenticate(params[:password])
-#     session[:user_id] = user.id 
-#     redirect '/accounts/accounts'
-#   else 
-#     @errors = ["Invalid Username or Password"]
-#     erb :failure  
-#   end 
+  # if user && user.authenticate(params[:password])
+  #   session[:user_id] = user.id 
+  #   redirect '/accounts/accounts'
+  # else 
+  #   @errors = ["Invalid Username or Password"]
+  #   erb :failure  
+  # end 
    
 # end 
  
