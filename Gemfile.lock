@@ -14,6 +14,7 @@ GEM
       zeitwerk (~> 2.2)
     ast (2.4.0)
     bcrypt (3.1.13)
+    bond (0.5.1)
     byebug (11.0.1)
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
@@ -32,8 +33,18 @@ GEM
     rack (2.0.7)
     rack-protection (2.0.7)
       rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
     rainbow (3.0.0)
     rake (13.0.1)
+    ripl (0.7.1)
+      bond (~> 0.5.1)
+    ripl-multi_line (0.3.1)
+      ripl (>= 0.3.6)
+    ripl-rack (0.2.1)
+      rack (>= 1.0)
+      rack-test (~> 0.6.2)
+      ripl (>= 0.7.0)
     rubocop (0.77.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -42,6 +53,8 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
     ruby-progressbar (1.10.1)
+    shotgun (0.9.2)
+      rack (>= 1.0)
     sinatra (2.0.7)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -53,6 +66,11 @@ GEM
     sqlite3 (1.4.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    tux (0.3.0)
+      ripl (>= 0.3.5)
+      ripl-multi_line (>= 0.2.4)
+      ripl-rack (>= 0.2.0)
+      sinatra (>= 1.2.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
@@ -68,8 +86,10 @@ DEPENDENCIES
   pry
   rake
   rubocop
+  shotgun
   sinatra-activerecord
   sqlite3
+  tux
 
 BUNDLED WITH
    2.0.1
