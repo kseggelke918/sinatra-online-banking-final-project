@@ -4,6 +4,7 @@
   <% @accounts.each do |account| %>
     <p><label for="account_number">Account Number:</label><%= account.account_number %></p>
     <p><label for="balance">Balance:</label><%= account.balance %>
+    <p><label for="account_type">Account Type:</label><%= account.account_type %>
     <label for="close_account">
       <form action='/accounts/<%=account.id %>/delete' method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
