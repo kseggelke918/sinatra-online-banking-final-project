@@ -38,9 +38,9 @@ class UsersController < ApplicationController
     erb :'accounts/accounts'
   end 
   
-  get '/:id/edit' do 
+  get '/users/:id/edit' do 
     @user = User.find_by_id(params[:id])
-    erb :edit 
+    erb :'users/edit' 
   end 
   
   get '/logout' do 
