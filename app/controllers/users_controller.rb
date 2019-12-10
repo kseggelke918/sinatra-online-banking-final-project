@@ -45,8 +45,8 @@ class UsersController < ApplicationController
   
   patch '/users/:id' do 
     @user = User.find_by_id(params[:id])
-    @user.username = params[:username]
-    @user.full_name = params[:full_name]
+    @user.username = params[:new_username]
+    @user.full_name = params[:new_name]
     if @user.password == params[:current_password] && params[:new_password] == params[:confirm_password]
       @user.password = params[:new_password]
     else 
