@@ -2,8 +2,8 @@
 
 <% if @accounts %>
   <% @accounts.each do |account| %>
-    <p><%= account.account_number %></p>
-    <p><%= account.balance %></p>
+    <p><label for="account_number">Account Number:</label><%= account.account_number %></p>
+    <p><label for="balance">Balance:</label><%= account.balance %></p>
   <% end %>
 <% else %> 
   <p>You don't have any open accounts.</p>
