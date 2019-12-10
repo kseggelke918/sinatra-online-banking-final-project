@@ -16,7 +16,7 @@ class AccountsController < ApplicationController
   end    
  end 
  
- post '/:id/delete' do 
+ delete '/accounts/:id/delete' do 
    @account = Account.find_by_id(params[:id])
    @account.delete 
    redirect to "/#{@user.id}/accounts" 
