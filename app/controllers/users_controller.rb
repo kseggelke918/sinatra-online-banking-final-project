@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   
   get '/:id/accounts' do 
     @user = User.find_by_id(params[:id])
-    @accounts = Account.find_by(params[:id])
+    @accounts = Account.find_by(user_id: params[:id])
     erb :'accounts/accounts'
   end 
   

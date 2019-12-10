@@ -1,8 +1,12 @@
 <h1>Hello, <%=@user.full_name%></h1>
 
-<% @accounts.each do |account| %>
-  <p><%= account.account_number %></p>
-  <p><%= account.balance %></p>
+<% if @accounts %>
+  <% @accounts.each do |account| %>
+    <p><%= account.account_number %></p>
+    <p><%= account.balance %></p>
+  <% end %>
+<% else %> 
+  <p>You don't have any open accounts.</p>
 <% end %>
 
 <h4>Open An Account: </h4>
