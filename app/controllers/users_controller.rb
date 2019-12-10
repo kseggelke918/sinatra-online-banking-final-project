@@ -38,6 +38,11 @@ class UsersController < ApplicationController
     erb :'accounts/accounts'
   end 
   
+  get '/:id/edit' do 
+    @user = User.find_by_id(params[:id])
+    erb :edit 
+  end 
+  
   get '/logout' do 
     session.clear 
     redirect '/'
