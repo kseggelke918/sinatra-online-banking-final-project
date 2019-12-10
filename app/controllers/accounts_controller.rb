@@ -15,6 +15,12 @@ class AccountsController < ApplicationController
     redirect to '/login'
   end    
  end 
+ 
+ post '/:id/delete' do 
+   @account = Account.find_by_id(params[:id])
+   @account.delete 
+   redirect to "/#{@user.id}/accounts" 
+ end 
   
 end 
 

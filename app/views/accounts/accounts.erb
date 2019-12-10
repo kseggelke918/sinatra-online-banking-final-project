@@ -3,13 +3,13 @@
 <% if @accounts %>
   <% @accounts.each do |account| %>
     <p><label for="account_number">Account Number:</label><%= account.account_number %></p>
-    <p><label for="balance">Balance:</label><%= account.balance %></p>
+    <p><label for="balance">Balance:</label><%= account.balance %>
     <label for="close_account">
       <form action='/accounts/<%account.id %>/delete' method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
         <input type="submit" value="Close Account">
       </form>
-    </label>
+    </label></p>
   <% end %>
 <% else %> 
   <p>You don't have any open accounts.</p>
