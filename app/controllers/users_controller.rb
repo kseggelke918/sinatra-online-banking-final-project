@@ -48,15 +48,18 @@ class UsersController < ApplicationController
     
     @user.username = params[:new_username] if params[:new_username] != ""
     @user.full_name = params[:new_name] if params[:new_name] != ""
-
-  #   if @user.password == params[:current_password] && params[:new_password] == params[:confirm_password] && params[:current_password] != ""
-  #     @user.password = params[:new_password]
-  #   else 
-  #     @errors = ["The current password entered is incorrect or the new passwords do not match"]
-  #   end 
-  
-    @user.save 
-  end 
+    
+    if params[:current_password] != "" && params[:new_password] != "" && params[:confirm_password] != "" 
+      if @user.password == params[:current_password] && params[:new_password] == params[:confirm_password]
+        @user.password = params[:new_password]
+      else 
+        @errors = ["The current password entered is incorrect or the new passwords do not match"]
+      end 
+    end 
+      @user.save 
+      redirect to "/#{@user.id}/accounts"
+  end
+ 
   
   get '/logout' do 
     session.clear 
