@@ -45,13 +45,17 @@ class UsersController < ApplicationController
   
   patch '/users/:id' do 
     @user = User.find_by_id(params[:id])
-    @user.username = params[:new_username]
-    @user.full_name = params[:new_name]
-    if @user.password == params[:current_password] && params[:new_password] == params[:confirm_password]
-      @user.password = params[:new_password]
-    else 
-      @errors = ["The current password entered is incorrect or the new passwords do not match"]
-    end 
+    
+    @user.username = params[:new_username] if params[:new_username] != ""
+    @user.full_name = params[:new_name] if params[:new_name] != ""
+
+  #   if @user.password == params[:current_password] && params[:new_password] == params[:confirm_password] && params[:current_password] != ""
+  #     @user.password = params[:new_password]
+  #   else 
+  #     @errors = ["The current password entered is incorrect or the new passwords do not match"]
+  #   end 
+  
+    @user.save 
   end 
   
   get '/logout' do 
