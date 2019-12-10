@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     @user.full_name = params[:new_name] if params[:new_name] != ""
     
     if params[:current_password] != "" && params[:new_password] != "" && params[:confirm_password] != "" 
-      if @user.password == params[:current_password] && params[:new_password] == params[:confirm_password]
+      if @user.authenticate(params[:current_password]) && params[:new_password] == params[:confirm_password]
         @user.password = params[:new_password]
       else 
         @errors = ["The current password entered is incorrect or the new passwords do not match"]
