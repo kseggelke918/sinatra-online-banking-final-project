@@ -1,6 +1,6 @@
 <h1>Hello, <%=@user.full_name%></h1>
 
-<% @user.accounts.each do |account| %>
+<% @accounts.each do |account| %>
   <p><%= account.account_number %></p>
   <p><%= account.balance %></p>
 <% end %>
