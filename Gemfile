@@ -13,6 +13,7 @@ gem 'rake'
 gem 'bcrypt'
 gem 'tux'
 gem 'shotgun'
+gem 'corneal'
 
 group :test, :development do 
   gem 'pry'
