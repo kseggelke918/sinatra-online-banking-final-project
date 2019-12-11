@@ -1,20 +1,36 @@
 <h1>Hello, <%=@user.full_name%></h1>
 
-<% if @accounts %>
-  <% @accounts.each do |account| %>
-    <p><label for="account_number">Account Number:   </label><%= account.account_number %>
-    <label for="balance">     Balance:   </label><%= account.balance %>
-    <label for="account_type">     Account Type:   </label><%= account.account_type %>
-    <label for="close_account">
-      <form action='/accounts/<%=account.id %>/delete' method="post">
-        <input id="hidden" type="hidden" name="_method" value="delete">
-        <input type="submit" value="Close Account">
-      </form>
-    </label></p>
-  <% end %>
-<% else %> 
-  <p>You don't have any open accounts.</p>
-<% end %>
+<table>
+  <tr>
+    <th>Account Number</th>
+    <th>Account Type</th>
+    <th>Balance</th>
+  </tr>
+  
+    <% if @accounts %>
+      <%@accounts.each do |account| %>
+      <tr>
+        <td><%= account.account_number %></td>
+        <td><%= account.account_type %></td>
+        <td><%= account.balance %></td>
+        <td><label for="close_account">
+        <form action='/accounts/<%=account.id %>/delete' method="post">
+          <input id="hidden" type="hidden" name="_method" value="delete">
+          <input type="submit" value="Close Account">
+        </form>
+        </label></td>
+      <%end%>
+    <% else %>
+    <p>You don't have any open accounts.</p>
+    <%end%>
+  </tr>
+  
+  
+</table>
+
+
+
+
 
 <br>
 <br>
