@@ -3,18 +3,25 @@
 <form action="/users/<%=@user.id%>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
     <h4><label for="change_username">Change Username:</label></h4>
+    <br>
     <h5><label for="current_username">Current Username: </label><%=@user.username %> </h5>
     <h5><label for="new_username">New Username: </label><input type="text" name="new_username"></h5>
+    <br>
+    <br>
 
     <h4><label for="change_name">Change Name:</label> </h4>
+    <br>
     <h5><label for="current_name">Current Name: </label><%=@user.full_name %> </h5>
     <h5><label for="new_name">New Name: </label><input type="text" name="new_name"></h5>
+    <br>
+    <br>
 
 
     <h4><label for="change_password">Change Password:</label> </h4>
+    <br>
     <h5><label for="current_password">Enter Current Password: </label><input type="password" name="current_password"> </h5>
-    <h5><label for="new_password">Enter New Password:</label><input type="password" name="new_password"> </h5>
-    <h5><label for="confirm_password">Confirm Password:</label><input type="password" name="confirm_password"> </h5>
+    <h5><label for="new_password">Enter New Password: </label><input type="password" name="new_password"> </h5>
+    <h5><label for="confirm_password">Confirm Password: </label><input type="password" name="confirm_password"> </h5>
     
     <input type="submit" value="Update User">
     
