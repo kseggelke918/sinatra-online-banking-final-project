@@ -22,5 +22,4 @@ class AccountsController < ApplicationController
    @account.delete 
    redirect to "/#{@user.id}/accounts" 
  end 
-  
 end 

@@ -1,6 +1,4 @@
 require 'pry'
-
-
 class UsersController < ApplicationController
 
   get '/signup' do 
@@ -58,7 +56,6 @@ class UsersController < ApplicationController
       @user.save 
       redirect to "/#{@user.id}/accounts"
   end
- 
   
   get '/logout' do 
     session.clear 
