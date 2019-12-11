@@ -22,14 +22,17 @@
     <h5><label for="current_password">Enter Current Password: </label><input type="password" name="current_password"> </h5>
     <h5><label for="new_password">Enter New Password: </label><input type="password" name="new_password"> </h5>
     <h5><label for="confirm_password">Confirm Password: </label><input type="password" name="confirm_password"> </h5>
+    <br>
     
     <input type="submit" value="Update User">
     
   </form>
   <br>  
+  <br>
   <form action='/<%=@user.id %>/accounts' method="get">
-    <input type="submit" value="Return to Accounts">
+    <input type="submit" value="Return to Accounts Without Saving Changes">
   </form>
+  <br>
   <br>
   <br>
 
