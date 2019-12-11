@@ -2,9 +2,9 @@
 
 <% if @accounts %>
   <% @accounts.each do |account| %>
-    <p><label for="account_number">Account Number:</label><%= account.account_number %></p>
-    <p><label for="balance">Balance:</label><%= account.balance %>
-    <p><label for="account_type">Account Type:</label><%= account.account_type %>
+    <p><label for="account_number">Account Number:   </label><%= account.account_number %>
+    <label for="balance">     Balance:   </label><%= account.balance %>
+    <label for="account_type">     Account Type:   </label><%= account.account_type %>
     <label for="close_account">
       <form action='/accounts/<%=account.id %>/delete' method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
@@ -16,14 +16,15 @@
   <p>You don't have any open accounts.</p>
 <% end %>
 
-<h4>Open An Account: </h4>
+<br>
+<br>
 <form action='/accounts/new' method="get">
   <input type="submit" value="Open Account">
 </form>
 <br>
-<br>
 
-<h4>Edit User: </h4>
+
+
 <form action='/users/<%=@user.id %>/edit' method="get">
   <input type="submit" value="Edit User">
 </form>
