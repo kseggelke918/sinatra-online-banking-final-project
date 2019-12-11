@@ -1,13 +1,14 @@
 <h1>Welcome, <%=@user.full_name%></h1>
 
-<table>
-  <tr>
-    <th>Account Number &nbsp;&nbsp;&nbsp;&nbsp;</th>
-    <th>Account Type &nbsp;&nbsp;&nbsp;&nbsp;</th>
-    <th>Balance &nbsp;&nbsp;&nbsp;&nbsp;</th>
-  </tr>
-  
-    <% if @accounts %>
+<% if @accounts == [] %>
+  <p>You don't have any open accounts.</p>
+<% else %> 
+  <table>
+    <tr>
+      <th>Account Number &nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Account Type &nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Balance &nbsp;&nbsp;&nbsp;&nbsp;</th>
+    </tr>
       <%@accounts.each do |account| %>
       <tr>
         <td><%= account.account_number %></td>
@@ -19,12 +20,9 @@
           <input type="submit" value="Close Account">
         </form>
         </label></td>
+      </tr>
       <%end%>
-    <% else %>
-    <p>You don't have any open accounts.</p>
     <%end%>
-  </tr>
-  
 </table>
 
 
