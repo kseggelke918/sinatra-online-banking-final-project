@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     erb :'users/signup' 
   end 
   
+  get '/login' do 
+    erb :'users/login'
+  end 
+  
   post '/login' do 
     @user = User.find_by(username: params[:username])
    
@@ -30,9 +34,13 @@ class UsersController < ApplicationController
   end 
   
   get '/:id/accounts' do 
-    @user = User.find_by_id(params[:id])
-    @accounts = @user.accounts 
-    erb :'accounts/accounts'
+    if logged_in?
+      @user = User.find_by_id(params[:id])
+      @accounts = @user.accounts 
+      erb :'accounts/accounts'
+    else 
+      redirect to "/login"
+    end 
   end 
   
   get '/users/:id/edit' do 
