@@ -6,12 +6,12 @@ Specs:
  [X] Include more than one model class (e.g. User, Post, Category) - User and Account 
  [X] Include at least one has_many relationship on your User model (e.g. User has_many Posts) - User has_many Accounts
  [X] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User) - Account belongs_to User
- [ ] Include user accounts with unique login attribute (username or email)
+ [X] Include user accounts with unique login attribute (username or email)
  [X] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying - Create Account, Create User, Read Account info, Update User info, Destory (close) account  
- [ ] Ensure that users can't modify content created by other users
- [ ] Include user input validations
+ [X] Ensure that users can't modify content created by other users
+ [X] Include user input validations
  [X] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new) - @errors displays in failure.erb 
- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+ [X] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 Confirm
 
  [X] You have a large number of small Git commits
