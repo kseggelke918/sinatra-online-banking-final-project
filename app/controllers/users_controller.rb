@@ -44,8 +44,12 @@ class UsersController < ApplicationController
   end 
   
   get '/users/:id/edit' do 
-    @user = User.find_by_id(params[:id])
-    erb :'users/edit' 
+    if logged_in?
+      @user = User.find_by_id(params[:id])
+      erb :'users/edit'
+    else 
+      redirect to "/login"
+    end 
   end 
   
   patch '/users/:id' do 

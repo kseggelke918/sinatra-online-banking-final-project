@@ -1,8 +1,12 @@
 class AccountsController < ApplicationController
  
  get '/accounts/new' do
-   @user = User.find_by_id(params[:id])
-   erb :'accounts/new'
+   if logged_in?
+    @user = User.find_by_id(params[:id])
+    erb :'accounts/new'
+  else 
+    redirect to "/login"
+  end 
  end 
  
  post '/accounts' do 
@@ -17,9 +21,13 @@ class AccountsController < ApplicationController
  end 
  
  delete '/accounts/:id/delete' do 
-   @user = current_user
-   @account = Account.find_by_id(params[:id])
-   @account.delete 
-   redirect to "/#{@user.id}/accounts" 
+   if logged_in?
+    @user = current_user
+    @account = Account.find_by_id(params[:id])
+    @account.delete 
+    redirect to "/#{@user.id}/accounts" 
+  else
+    redirect to "/login"
+  end 
  end 
 end 
