@@ -8,7 +8,15 @@ class Account < ActiveRecord::Base
   end 
   
   def account_number_generator
-    rand(111111..999999)
+    acct_num = rand(111111..999999)
+    
+    if Account.exists?(account_number: acct_num)
+      acct_num = rand(111111..999999) 
+    end 
+    
+    acct_num
+    
   end 
+
   
 end 
