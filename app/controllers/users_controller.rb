@@ -23,16 +23,10 @@ class UsersController < ApplicationController
   
   post '/signup' do 
     if params[:password] == params[:confirm_password]
-      binding.pry 
-      if !User.all.username.include?(params[:username])
         @user = User.new(full_name: params[:full_name], username: params[:username], password: params[:password])
         @user.save 
         session[:user_id] = @user.id 
         redirect to "/#{@user.id}/accounts"
-      else 
-        @errors = ["This username is already in use", "Please choose a new username."]
-        erb :failure
-      end 
     else 
       @errors = ["Passwords do not match"]
       erb :failure 
