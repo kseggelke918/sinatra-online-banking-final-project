@@ -12,7 +12,7 @@ class AccountsController < ApplicationController
  post '/accounts' do 
   if logged_in?
       @user = current_user
-      @account = Account.new(account_type: params[:account_type], balance: params[:balance], user_id: @user.id, account_number: rand(111111..999999))
+      @account = Account.new(account_type: params[:account_type], balance: params[:balance], user_id: @user.id)
       @account.save 
       redirect to "/#{@user.id}/accounts"
     else
