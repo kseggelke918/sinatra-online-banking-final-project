@@ -24,9 +24,13 @@ class UsersController < ApplicationController
   post '/signup' do 
     if params[:password] == params[:confirm_password]
         @user = User.new(full_name: params[:full_name], username: params[:username], password: params[:password])
-        @user.save 
-        session[:user_id] = @user.id 
-        redirect to "/#{@user.id}/accounts"
+         if @user.save 
+          session[:user_id] = @user.id 
+          redirect to "/#{@user.id}/accounts"
+        else 
+          @errors = @user.errors.full_messages
+          erb :failure 
+        end 
     else 
       @errors = ["Passwords do not match"]
       erb :failure 
@@ -65,8 +69,12 @@ class UsersController < ApplicationController
         @errors = ["The current password entered is incorrect or the new passwords do not match"]
       end 
     end 
-      @user.save 
-      redirect to "/#{@user.id}/accounts"
+      if @user.save 
+        redirect to "/#{@user.id}/accounts"
+      else 
+        @errors = @user.errors.full_messages
+        erb :failure
+      end 
   end
   
   get '/logout' do 
