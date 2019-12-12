@@ -11,6 +11,9 @@ $ bundle install
 Usage
 To use this application, run shotgun in the terminal. 
 
+Walkthrough 
+https://www.youtube.com/watch?v=HTztHnB-Cjc&feature=youtu.be 
+
 Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/'stupendous-compressor-1544'/sinatra-online-banking-final-project. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
