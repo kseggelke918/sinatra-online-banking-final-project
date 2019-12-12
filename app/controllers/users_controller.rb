@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   
   post '/signup' do 
     if params[:password] == params[:confirm_password]
+      binding.pry 
       if !User.all.username.include?(params[:username])
         @user = User.new(full_name: params[:full_name], username: params[:username], password: params[:password])
         @user.save 
